@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package notification_service;
+
+option go_package = "genproto/notification_service";
+
+import "google/protobuf/struct.proto";
+
+message NotificationPrimaryKey {
+    string notification_id = 1;
+}
+
+message Notification {
+    string notification_id = 1;
+    string title = 2;
+    string description = 3;
+    string created_time = 4;
+    string created_at = 5;
+    string updated_at = 6;
+    string deleted_at = 7;
+}
+
+message CreateNotification {
+    string title = 1;
+    string description = 2;
+    string created_time = 3;
+}
+
+message UpdateNotification {
+    string notification_id = 1;
+    string title = 2;
+    string description = 3;
+    string created_time = 4;
+}
+
+message GetListNotificationRequest {
+    int64 offset = 1;
+    int64 limit = 2;
+    string search = 3;
+}
+
+message GetListNotificationResponse {
+    int64 count = 1;
+    repeated Notification notifications = 2;
+}

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package history_service;
+
+option go_package = "genproto/history_service";
+
+import "google/protobuf/empty.proto";
+import "history.proto";
+
+service HistoryService {
+    rpc Create(CreateHistory) returns (History) {};
+    rpc GetByID(HistoryPrimaryKey) returns (History) {};
+    rpc GetList(GetListHistoryRequest) returns (GetListHistoryResponse) {};
+    rpc Update(UpdateHistory) returns (History) {};
+    rpc Delete(HistoryPrimaryKey) returns (google.protobuf.Empty) {};
+}

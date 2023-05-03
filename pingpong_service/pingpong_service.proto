@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package pingpong_service;
+
+option go_package = "genproto/pingpong_service";
+
+import "google/protobuf/empty.proto";
+import "pingpong.proto";
+
+service PingPongService {
+    rpc Create(CreatePingPong) returns (PingPong) {};
+    rpc GetByID(PingPongPrimaryKey) returns (PingPong) {};
+    rpc GetList(GetListPingPongRequest) returns (GetListPingPongResponse) {};
+    rpc Update(UpdatePingPong) returns (PingPong) {};
+    rpc Delete(PingPongPrimaryKey) returns (google.protobuf.Empty) {};
+}

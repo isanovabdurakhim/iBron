@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package football_service;
+
+option go_package = "genproto/football_service";
+
+import "google/protobuf/empty.proto";
+import "football.proto";
+
+service FootBallService {
+    rpc Create(CreateFootBall) returns (FootBall) {};
+    rpc GetByID(FootBallPrimaryKey) returns (FootBall) {};
+    rpc GetList(GetListFootBallRequest) returns (GetListFootBallResponse) {};
+    rpc Update(UpdateFootBall) returns (FootBall) {};
+    rpc Delete(FootBallPrimaryKey) returns (google.protobuf.Empty) {};
+}
